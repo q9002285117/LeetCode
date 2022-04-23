@@ -23,7 +23,6 @@ var addTwoNumbers = function(l1, l2) {
             sum += l1.val;
             l1 = l1.next;
         }
-
         if(l2!==null){
             sum += l2.val;
             l2 = l2.next;
@@ -33,7 +32,6 @@ var addTwoNumbers = function(l1, l2) {
         sum += carry;
         list.next = new ListNode(sum%10); //十位數進位
         carry = parseInt(sum/10);
-
         list = list.next;
     }
     return result.next;
