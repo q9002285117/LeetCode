@@ -1,0 +1,22 @@
+/**
+ * @param {number[]} arr
+ * @param {number} k
+ * @return {boolean}
+ */
+var canArrange = function(arr, k) {
+    let hashMap = new Map();
+    let index = arr.length / 2;
+    for(let el of arr){
+        let remain = el % k //當前數字的餘數
+        if(remain < 0) remain += k
+        let pair = remain === 0 ? 0 : k-remain
+        let findPair = hashMap.get(pair)
+        
+        if(findPair){
+            hashMap.set(pair, findPair - 1)
+            index--
+        }
+        else hashMap.set(remain, hashMap.get(remain) + 1 || 1)
+    }
+    return index === 0
+};
