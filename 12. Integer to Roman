@@ -21,7 +21,9 @@ var intToRoman = function(num) {
   var res = '';
   var i = 12;
   while (num > 0) {
+    // 找到對應並重複N次
     res += map[i][1].repeat(Math.floor(num / map[i][0]));
+    // 找出餘數重複步驟
     num %= map[i][0];
     i--;
   }
